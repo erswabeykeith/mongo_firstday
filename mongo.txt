@@ -33,7 +33,7 @@
   db.getCollection('orders').find({$and : [{"lineItems.quantity": {$lt: 50}, "lineItems.quantity": {$gt: 50}}]})
 
 8. Update one of your line items to 42.99.
-db.getCollection('orders').update({"_id" : ObjectId("583f5d837c09136b4e00e276")}, {$set: {"lineItems.1.unitPrice": 42.99} })
+  db.getCollection('orders').update({"_id" : ObjectId("583f5d837c09136b4e00e276")}, {$set: {"lineItems.1.unitPrice": 42.99} })
 
 9. Remove one of your orders.
   db.getCollection('orders').remove({"_id" : ObjectId("583cd0b4482c7736c1d27058")}) 583cd0b4482c7736c1d27058
