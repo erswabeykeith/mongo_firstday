@@ -1,0 +1,27 @@
+1. Create a collection named orders.
+  db.createCollection('orders')
+
+2. Insert at least 3 documents that represent an order. IMPORTANT: See section below for fields.
+  db.getCollection('orders').insert({
+  orderDate: new Date("2015-11-30"),
+  orderTotal: 10.00,
+  lineItems: [{
+  unitPrice: 1.00,
+  quantity: 5,
+  productName: "peach"},
+  {unitPrice: 2.00,
+  quantity: 3,
+  productName: "apple"},
+  {unitPrice: 3.00,
+  quantity: 2,
+  productName: "orange"}
+  ]});
+
+3. Find a single order document, any order document.
+  db.getCollection('orders').find({orderTotal: 10.00})
+
+4. Find all orders and make them look pretty.
+  db.getCollection('orders').find().pretty()
+
+5. Find all orders with an orderDate that is prior to 1/1/2016.
+  db.getCollection('orders').find({'orderDate':{$lt: new Date('1/1/2016')}});
