@@ -30,7 +30,7 @@
   db.getCollection('orders').find({'orderDate':{$gt: new Date('1/1/2016')}})
 
 7. Find orders with lineItems that have a quantity that is less than 50, but greater than 5.
-  db.getCollection('orders').find({$and : [{"lineItems.quantity": {$lt: 50}, "lineItems.quantity": {$gt: 50}}]})
+  db.getCollection('orders').find({$and : [{"lineItems.quantity": {$lt: 50}, "lineItems.quantity": {$gt: 5}}]})
 
 8. Update one of your line items to 42.99.
   db.getCollection('orders').update({"_id" : ObjectId("583f5d837c09136b4e00e276")}, {$set: {"lineItems.1.unitPrice": 42.99} })
